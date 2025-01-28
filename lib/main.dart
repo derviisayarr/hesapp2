@@ -23,10 +23,9 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  String input = ''; // Kullanıcının girdiği sayılar ve işlemler
-  String output = '0'; // Hesaplanan sonuç
+  String input = '';
+  String output = '0';
 
-  // Hesaplama işlemleri
   void buttonPressed(String buttonText) {
     setState(() {
       if (buttonText == 'C') {
@@ -34,7 +33,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         output = '0';
       } else if (buttonText == '=') {
         try {
-          // Hesaplama yapılırken input'un matematiksel işlemleri çözülüyor
           output = calculateResult(input).toString();
         } catch (e) {
           output = 'Error';
@@ -46,15 +44,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     });
   }
 
-  // Hesaplama yapacak fonksiyon
   double calculateResult(String input) {
-    // String'den işlem sonucu çıkarmak için güvenli bir şekilde hesapla
     try {
-      // Burada basit bir güvenli işlem yapmak için 'dart:math' kütüphanesini kullanabiliriz.
-      // Bu örnekte sadece toplama, çıkarma, çarpma ve bölme işlemleri için güvenli hesaplama yapıyoruz
       return double.parse(input);
     } catch (e) {
-      return 0; // Hatalı bir işlemse sıfır dönebiliriz
+      return 0;
     }
   }
 
